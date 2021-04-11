@@ -14,21 +14,23 @@ import Pagging from "./Components/Pagging";
 // import React from 'react'
 
 export default function App() {
-  const [loggedin, setLoggedin] = useState(true );
+  const [loggedin, setLoggedin] = useState(true);
   const responseGoogleSuccess = (response) => {
     setLoggedin(true);
-    console.log(response)
+    console.log(response);
   };
   const responseGoogleFailure = () => {
     setLoggedin(false);
   };
-  const logout=()=>{setLoggedin(false)}
- 
+  const logout = () => {
+    setLoggedin(false);
+  };
+
   return (
     <div className="App">
       hello
       {loggedin ? (
-        <Pagging logout={logout}/>
+        <Pagging logout={logout} />
       ) : (
         <GoogleLogin
           clientId="406039270022-6uiiiifb1hr66kc0jgflohipuq00j5n3.apps.googleusercontent.com"
@@ -37,8 +39,6 @@ export default function App() {
           cookiePolicy={"single_host_origin"}
         />
       )}
-
-
     </div>
   );
 }
